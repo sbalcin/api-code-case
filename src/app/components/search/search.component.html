@@ -1,0 +1,75 @@
+<div class="searchContainer">
+
+
+  <form [formGroup]="form">
+
+    <div class="row">
+
+      <div class="column">
+        <div class="md-form ">
+          <input type="date" id="fromDate" class="form-control" mdbInput formControlName="fromDate">
+          <label for="fromDate">From Date</label>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="md-form ">
+          <input type="date" id="toDate" class="form-control" mdbInput formControlName="toDate">
+          <label for="fromDate">To Date</label>
+        </div>
+      </div>
+
+      <div class="column searchOption">
+        <select class="form-control browser-default custom-select "
+                (change)="changeFilter('status', $event.target.value)">
+          <option value="reset" selected>Select Status</option>
+          <option *ngFor="let item of statusSelect" [value]="item.uuid">{{ item.label }}</option>
+        </select>
+      </div>
+
+      <div class="column searchOption">
+        <select class="form-control browser-default custom-select "
+                (change)="changeFilter('operation', $event.target.value)">
+          <option value="reset" selected>Select Operation</option>
+          <option *ngFor="let item of operationSelect" [value]="item.uuid">{{ item.label }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="break"></div>
+
+    <div class="row">
+      <div class="column searchOption">
+        <select class="form-control browser-default custom-select "
+                (change)="changeFilter('payment', $event.target.value)">
+          <option value="reset" selected>Select Payment</option>
+          <option *ngFor="let item of paymentMethodSelect" [value]="item.uuid">{{ item.label }}</option>
+        </select>
+      </div>
+
+      <div class="column searchOption">
+        <select class="form-control browser-default custom-select "
+                (change)="changeFilter('filter', $event.target.value)">
+          <option value="reset" selected>Select Filter</option>
+          <option *ngFor="let item of filterSelect" [value]="item.uuid">{{ item.label }}</option>
+        </select>
+      </div>
+
+      <div class="column">
+        <div class="md-form">
+          <input type="text" class="form-control" mdbInput formControlName="filterValue" placeholder="Filter Value">
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="">
+          <button mdbBtn type="submit" (click)="applyFilter(form.value)" class="btn btn-primary px-4">Apply Filter
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </form>
+
+
+</div>

@@ -1,0 +1,143 @@
+<div>
+
+  <app-search></app-search>
+
+  <div class="row">
+    <div class="column">
+
+      <div class="card">
+        <div class="card-header">
+          Transactions
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col-md-12 mx-auto">
+              <div class="md-form">
+                <input type="text" [(ngModel)]="searchText" class="form-control" id="search" mdbInput>
+                <label for="search">Search</label>
+              </div>
+            </div>
+          </div>
+          <table mdbTable mdbTableScroll scrollY="true" borderless="true" small="true" maxHeight="400">
+            <thead>
+            <tr>
+              <th [mdbTableSort]="items" [sortBy]="'customerInfo.billingFirstName'">Customer</th>
+              <th>Acquirer</th>
+              <th>Created At</th>
+              <th>Status</th>
+              <th>Transaction ID</th>
+              <th>Message</th>
+              <th>Payment Type</th>
+              <th>Detay</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let el of items; let i = index" (click)=showModal(el) [@EnterLeave]="'flyIn'">
+              <td>{{el.customerInfo ? el.customerInfo.billingFirstName : ''}} {{el.customerInfo ? el.customerInfo.billingLastName : ''}}</td>
+              <td>{{el.acquirer ? el.acquirer.name : ''}}</td>
+              <td>{{el.created_at  | date:'yyyy.MM..dd' }}</td>
+              <td>{{el.transaction ? el.transaction.merchant.status : ''}}</td>
+              <td>{{el.transaction ? el.transaction.merchant.transactionId : ''}}</td>
+              <td>{{el.transaction ? el.transaction.merchant.message : ''}}</td>
+              <td>{{el.ipn ? el.ipn.merchant.paymentType : ''}}</td>
+              <td>
+                <div class="" style="cursor: pointer" (click)=showModal(el)>
+                  <i class="fa fa-info fa-2x text-success" mdbWavesEffect title="Detail"></i>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <div class="card-footer">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-circle pg-blue justify-content-center">
+              <li class="page-item {{currentPage == 1 ? 'disabled' : ''}} "><a class="page-link" mdbWavesEffect
+                                                                               (click)="changePage('previous')">Previous</a>
+              </li>
+              <li class="page-item active"><a class="page-link" mdbWavesEffect>{{currentPage}}</a></li>
+              <li class="page-item"><a class="page-link" mdbWavesEffect (click)="changePage('next')">Next</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<div style="overflow-y: auto" mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="myBasicModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header card-header py-3">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <span> {{customerName}} </span>
+      </div>
+
+      <div class="dashboardOrdersTabSetPopup">
+
+        <tabset>
+          <tab class="">
+            <ng-template tabHeading><i class="icon-list"></i>&nbsp; Customer Info
+            </ng-template>
+
+            <div class="card-body">
+              <table mdbTable mdbTableScroll striped="true" scrollY="true" borderless="true" small="true"
+                     maxHeight="400">
+                <tbody>
+                <tr *ngFor="let el of customerInfoSpesc | keyvalue; let i = index">
+                  <td>{{el.key}}</td>
+                  <td>{{el.value}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </tab>
+
+          <tab class="">
+            <ng-template tabHeading><i class="icon-list"></i>&nbsp; Transaction
+            </ng-template>
+
+            <div class="card-body">
+              <table mdbTable mdbTableScroll striped="true" scrollY="true" borderless="true" small="true"
+                     maxHeight="400">
+                <tbody>
+                <tr *ngFor="let el of transactionSpesc | keyvalue; let i = index">
+                  <td>{{el.key}}</td>
+                  <td>{{el.value}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </tab>
+
+          <tab class="">
+            <ng-template tabHeading><i class="icon-list"></i>&nbsp; Client
+            </ng-template>
+
+            <div class="card-body">
+              <table mdbTable mdbTableScroll striped="true" scrollY="true" borderless="true" small="true"
+                     maxHeight="400">
+                <tbody>
+                <tr *ngFor="let el of clientSpesc | keyvalue; let i = index">
+                  <td>{{el.key}}</td>
+                  <td>{{el.value}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </tab>
+
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>

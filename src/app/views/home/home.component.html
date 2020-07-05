@@ -1,0 +1,50 @@
+<div>
+
+  <app-search></app-search>
+
+
+  <div class="row">
+
+    <div class="column">
+      <div class="card">
+        <div class="card-header">Customers By Transaction Breakdown</div>
+        <div class="card-body">
+          <div class="">
+            <ngx-charts-pie-chart
+              [scheme]="colorScheme"
+              [results]="customersChart"
+              [gradient]="gradient"
+              [legend]="showLegend"
+              [legendTitle]="legendTitle"
+              [legendPosition]="legendPosition"
+              [labels]="showLabels"
+              [doughnut]="isDoughnut">
+            </ngx-charts-pie-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card" style="width: 100%; height: 100%">
+        <div class="card-header">Transaction Count By Time Breakdown</div>
+        <div class="card-body">
+          <div class="" style="width: 100%; height: 100%">
+            <ngx-charts-line-chart
+              [scheme]="colorScheme"
+              [legend]="false"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxis]="showXAxis"
+              [yAxis]="showYAxis"
+              [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel"
+              [timeline]="timeline"
+              [results]="transactionCountChart">
+            </ngx-charts-line-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
