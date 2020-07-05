@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "9c2747bc-4b5f-4a2e-9c7c-a590a95d55f0",
+		"name": "financialhouse",
+		"description": "financialhouse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "demo@financialhouse.io",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "cjaiU8CV",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:1011/api/v3/merchant/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1011",
+					"path": [
+						"api",
+						"v3",
+						"merchant",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "report",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudFVzZXJJZCI6NTMsInJvbGUiOiJ1c2VyIiwibWVyY2hhbnRJZCI6Mywic3ViTWVyY2hhbnRJZHMiOlszLDc0LDkzLDExOTEsMTI5NSwxMTEsMTM3LDEzOCwxNDIsMTQ1LDE0NiwxNTMsMzM0LDE3NSwxODQsMjIwLDIyMSwyMjIsMjIzLDI5NCwzMjIsMzIzLDMyNywzMjksMzMwLDM0OSwzOTAsMzkxLDQ1NSw0NTYsNDc5LDQ4OCw1NjMsMTE0OSw1NzAsMTEzOCwxMTU2LDExNTcsMTE1OCwxMTc5LDEyOTMsMTI5NCwxMzA2LDEzMDddLCJ0aW1lc3RhbXAiOjE1OTM2ODY2ODN9.hTxhhRppEmewWUzZ4_aih-BzrKI9ALPSVQytOyl_oek",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "fromDate",
+							"value": "2015-07-01",
+							"type": "text"
+						},
+						{
+							"key": "toDate",
+							"value": "2020-07-01",
+							"type": "text"
+						},
+						{
+							"key": "merchant",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "acquirer",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "cursor",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:1011/api/v3/transactions/report",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1011",
+					"path": [
+						"api",
+						"v3",
+						"transactions",
+						"report"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transaction/list",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudFVzZXJJZCI6NTMsInJvbGUiOiJ1c2VyIiwibWVyY2hhbnRJZCI6Mywic3ViTWVyY2hhbnRJZHMiOlszLDc0LDkzLDExOTEsMTI5NSwxMTEsMTM3LDEzOCwxNDIsMTQ1LDE0NiwxNTMsMzM0LDE3NSwxODQsMjIwLDIyMSwyMjIsMjIzLDI5NCwzMjIsMzIzLDMyNywzMjksMzMwLDM0OSwzOTAsMzkxLDQ1NSw0NTYsNDc5LDQ4OCw1NjMsMTE0OSw1NzAsMTEzOCwxMTU2LDExNTcsMTE1OCwxMTc5LDEyOTMsMTI5NCwxMzA2LDEzMDddLCJ0aW1lc3RhbXAiOjE1OTM2ODY2ODN9.hTxhhRppEmewWUzZ4_aih-BzrKI9ALPSVQytOyl_oek",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "fromDate",
+							"value": "2015-07-01",
+							"type": "text"
+						},
+						{
+							"key": "toDate",
+							"value": "2020-07-01",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:1011/api/v3/transaction/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1011",
+					"path": [
+						"api",
+						"v3",
+						"transaction",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudFVzZXJJZCI6NTMsInJvbGUiOiJ1c2VyIiwibWVyY2hhbnRJZCI6Mywic3ViTWVyY2hhbnRJZHMiOlszLDc0LDkzLDExOTEsMTI5NSwxMTEsMTM3LDEzOCwxNDIsMTQ1LDE0NiwxNTMsMzM0LDE3NSwxODQsMjIwLDIyMSwyMjIsMjIzLDI5NCwzMjIsMzIzLDMyNywzMjksMzMwLDM0OSwzOTAsMzkxLDQ1NSw0NTYsNDc5LDQ4OCw1NjMsMTE0OSw1NzAsMTEzOCwxMTU2LDExNTcsMTE1OCwxMTc5LDEyOTMsMTI5NCwxMzA2LDEzMDddLCJ0aW1lc3RhbXAiOjE1OTM2ODY2ODN9.hTxhhRppEmewWUzZ4_aih-BzrKI9ALPSVQytOyl_oek",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "transactionId",
+							"value": "1011022-1539356729-1293",
+							"type": "text"
+						},
+						{
+							"key": "toDate",
+							"value": "2020-07-01",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:1011/api/v3/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1011",
+					"path": [
+						"api",
+						"v3",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "client",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudFVzZXJJZCI6NTMsInJvbGUiOiJ1c2VyIiwibWVyY2hhbnRJZCI6Mywic3ViTWVyY2hhbnRJZHMiOlszLDc0LDkzLDExOTEsMTI5NSwxMTEsMTM3LDEzOCwxNDIsMTQ1LDE0NiwxNTMsMzM0LDE3NSwxODQsMjIwLDIyMSwyMjIsMjIzLDI5NCwzMjIsMzIzLDMyNywzMjksMzMwLDM0OSwzOTAsMzkxLDQ1NSw0NTYsNDc5LDQ4OCw1NjMsMTE0OSw1NzAsMTEzOCwxMTU2LDExNTcsMTE1OCwxMTc5LDEyOTMsMTI5NCwxMzA2LDEzMDddLCJ0aW1lc3RhbXAiOjE1OTM2ODY2ODN9.hTxhhRppEmewWUzZ4_aih-BzrKI9ALPSVQytOyl_oek"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "transactionId",
+							"value": "1011022-1539356729-1293",
+							"type": "text"
+						},
+						{
+							"key": "toDate",
+							"value": "2020-07-01",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sandbox-reporting.rpdpymnt.com/api/v3/client",
+					"protocol": "https",
+					"host": [
+						"sandbox-reporting",
+						"rpdpymnt",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"client"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
