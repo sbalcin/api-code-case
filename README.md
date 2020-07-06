@@ -1,3 +1,16 @@
+This project contains simple API management frontend solution with Angular.
+
+You can reach the deployed version over this address https://api-code-case.herokuapp.com/ .<br>
+
+Below you will find some information about the application and how to use.<br>
+
+- CoreUI used for application template.<br>
+- Bootstrap used for components library <br>
+- Flex desing used for responsive ui .<br>
+- Swimlane used as the chart library.<br>
+- Some other libraries are used in this project as well like ngx-toastr, express, animations etc.
+
+
 # Financialhouse
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
